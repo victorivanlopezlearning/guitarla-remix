@@ -13,3 +13,7 @@ npm run dev
 This starts your app in development mode, rebuilding assets on file changes.
 
 # GuitarLA | Remix
+
+## Built with
+
+- React SSR Framework - [Remix](https://remix.run/)
