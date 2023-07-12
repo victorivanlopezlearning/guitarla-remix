@@ -16,12 +16,31 @@
   }
 }
 
-/* Component: Guitar */
+/* Guitar */
 .guitar {
   display: grid;
   grid-template-columns: 2fr 3fr;
   column-gap: 1rem;
   align-items: center;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.guitar.single {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .guitar.single {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+.single .guitar__image {
+  width: 20rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .single .guitar__image {
+    width: 100%;
+  }
 }
 .guitar__description {
   display: -webkit-box;
