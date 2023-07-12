@@ -49,10 +49,14 @@
   font-weight: 900;
   text-transform: uppercase;
   position: relative;
-  transition: color .5s;
 }
-.guitar__link:hover {
-  color: var(--white);
+@media (hover: hover) {
+  .guitar__link {
+    transition: color .5s;
+  }
+  .guitar__link:hover {
+    color: var(--white);
+  }
 }
 .guitar__link::before {
   content: '';
@@ -63,8 +67,12 @@
   height: 100%;
   background-color: var(--primary);
   z-index: -1;
-  transition: width .5s;
 }
-.guitar__link:hover::before {
-  width: 100%;
+@media (hover: hover) {
+  .guitar__link::before {
+    transition: width .5s;
+  }
+  .guitar__link:hover::before {
+    width: 100%;
+  }
 }
