@@ -7,6 +7,7 @@ import {
   LiveReload,
   useRouteError,
   isRouteErrorResponse,
+  ScrollRestoration,
 } from '@remix-run/react';
 import styles from '~/styles/index.css';
 import Header from '~/components/header';
@@ -65,6 +66,7 @@ function Document({ children }) {
       <Header />
       { children }
       <Footer />
+      <ScrollRestoration />
       <Scripts />
       <LiveReload />
     </body>
