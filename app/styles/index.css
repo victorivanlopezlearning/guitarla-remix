@@ -37,6 +37,54 @@ main {
   color: var(--primary);
   margin: 5rem 0;
 }
+/* BUTTONS */
+.post__link,
+.guitar__link {
+  margin-top: 2rem;
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  color: var(--black);
+  border: 2px solid var(--primary);
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: relative;
+  transition: color .6s;
+}
+@media (hover: hover) {
+  .post__link,
+  .guitar__link {
+    transition: color .5s;
+  }
+  .post__link:hover,
+  .guitar__link:hover {
+    color: var(--white);
+  }
+}
+.post__link::before,
+.guitar__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary);
+  z-index: -1;
+}
+@media (hover: hover) {
+  .post__link::before,
+  .guitar__link::before {
+    transition: width .5s;
+  }
+  .post__link:hover::before,
+  .guitar__link:hover::before {
+    width: 100%;
+  }
+}
 /* HEADER */
 .header {
   background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url(/img/header.jpg);
