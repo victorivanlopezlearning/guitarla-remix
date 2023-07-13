@@ -16,6 +16,9 @@
 }
 
 /* POST */
+.post__image {
+  border-radius: 1rem;
+}
 .post__content {
   padding: 2rem;
 }

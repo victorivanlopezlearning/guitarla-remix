@@ -9,7 +9,7 @@ function Post({ post }) {
 
   return (
     <article className="post">
-      <img src={imageURL} alt={`Imagen portada ${title}`} />
+      <img className="post__image" src={imageURL} alt={`Imagen portada ${title}`} />
 
       <div className="post__content">
         <h2 className="post__title">{title}</h2>
