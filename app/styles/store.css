@@ -22,10 +22,25 @@
   grid-template-columns: 2fr 3fr;
   column-gap: 1rem;
   align-items: center;
+}
+.guitar__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  font-size: 1.6rem;
+}
+.guitar__price {
+  color: var(--primary);
+  font-size: 3.3rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+/* GUITAR SINGLE */
+.guitar.single {
   max-width: 70rem;
   margin: 0 auto;
-}
-.guitar.single {
   grid-template-columns: 1fr;
 }
 @media (min-width: 768px) {
@@ -41,17 +56,4 @@
   .single .guitar__image {
     width: 100%;
   }
-}
-.guitar__description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  overflow: hidden;
-  font-size: 1.6rem;
-}
-.guitar__price {
-  color: var(--primary);
-  font-size: 3.3rem;
-  font-weight: 900;
-  margin: 0;
 }
