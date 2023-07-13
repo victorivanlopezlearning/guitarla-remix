@@ -1,6 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/models/posts.server";
-import Post from "~/components/post";
+import ListPosts from "~/components/list-posts";
 import styles from '~/styles/blog.css';
 
 export function meta() {
@@ -32,18 +32,9 @@ function Blog() {
     <main className='blog container'>
       <h1 className='heading'>Nuestro Blog</h1>
 
-      
-      {posts?.length && (
-        <div className="blog__content">
-          {posts?.map( post => (
-            <Post
-              key={ post?.id }
-              post={ post?.attributes }
-            />
-          ))}
-        </div>
-      )}
-      
+      <ListPosts 
+          posts={ posts }
+        />
     </main>
   )
 }
