@@ -1,6 +1,23 @@
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/models/posts.server";
-import Post from "../components/post";
+import Post from "~/components/post";
+import styles from '~/styles/blog.css';
+
+export function meta() {
+  return [
+    { title: 'GuitarLA - Blog: consejos, tutoriales y las últimas noticias' },
+    { name: 'description', content: 'Sumérgete en el apasionante mundo de las guitarras con el blog de GuitarLA. Encuentra consejos útiles, tutoriales detallados y las últimas noticias relacionadas con el mundo de la música y las guitarras.'}
+  ];
+}
+
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles,
+    },
+  ];
+};
 
 export async function loader() {
   const posts = await getPosts();

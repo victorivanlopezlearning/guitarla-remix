@@ -10,7 +10,7 @@ function Post({ post }) {
       <div className="post__content">
         <h2 className="post__title">{title}</h2>
         <p className="post__meta">{publishedAt}</p>
-        <p className="post__content">{content}</p>
+        <p className="post__extract">{content}</p>
         <Link
           className="post__link"
           to={`/posts/${url}`}
