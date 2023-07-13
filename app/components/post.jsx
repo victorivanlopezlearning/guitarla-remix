@@ -1,12 +1,12 @@
 import { Link } from "@remix-run/react";
-import { formatDate } from "../utils/formatDate";
+import { formatDate } from "../utils";
 
 function Post({ post }) {
   const { title, content, image, url, publishedAt } = post;
 
   const imageURL = image.data.attributes.formats.small.url;
   const date = formatDate(publishedAt);
-  
+
   return (
     <article className="post">
       <img src={imageURL} alt={`Imagen portada ${title}`} />
