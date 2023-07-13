@@ -84,9 +84,9 @@ export function ErrorBoundary() {
           <p className='error__description'>{error.data}</p>
           <Link
             className='error__link'
-            to={'/store'}
+            to={-1}
           >
-            Regresar a la tienda
+            Regresar
           </Link>
         </div>
       </Document>
