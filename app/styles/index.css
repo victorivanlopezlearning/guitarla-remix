@@ -144,3 +144,35 @@ main {
 .footer__copyright {
   text-align: center;
 }
+
+/* ERROR */
+.error {
+  text-align: center;
+}
+.error__status {
+  font-size: 6rem;
+  margin: 2rem 0;
+}
+.error__description {
+  font-size: 2.2rem;
+}
+.error__link {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--primary);
+  text-transform: uppercase;
+  border: none;
+  text-align: center;
+  padding: 1rem;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+@media (hover: hover) {
+  .error__link {
+    transition: background-color .3s;
+  }
+  .error__link:hover {
+    background-color: var(--black);
+  }
+}
