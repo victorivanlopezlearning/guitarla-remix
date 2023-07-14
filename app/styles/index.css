@@ -160,6 +160,11 @@ main {
 }
 @media (min-width: 768px) {
   .model__name {
+    font-size: 7rem;
+  }
+}
+@media (min-width: 1200px) {
+  .model__name {
     font-size: 8rem;
   }
 }
@@ -189,7 +194,7 @@ main {
 @media (min-width: 768px) {
   .header__model {
       display: block;
-      width: 40%;
+      width: 35%;
       position: absolute;
       right: 0;
       bottom: 0;
