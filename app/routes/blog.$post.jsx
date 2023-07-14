@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
 import { getPost } from "~/models/posts.server";
-import styles from '~/styles/blog.css';
 import { formatDate } from '~/utils';
 
 export async function loader({ params }) {
@@ -24,15 +23,6 @@ export function meta({ data }) {
   ];
 }
 
-export function links() {
-  return [
-    {
-      rel: 'stylesheet',
-      href: styles,
-    },
-  ];
-};
-
 function Post() {
 
   const post = useLoaderData();
@@ -42,7 +32,7 @@ function Post() {
   const date = formatDate(publishedAt);
 
   return (
-    <main className="post single container">
+    <div className="post single">
       <h1 className="heading">{title}</h1>
 
       <article>
@@ -53,7 +43,7 @@ function Post() {
           <p className="post__content-text">{content}</p>
         </div>
       </article>
-    </main>
+    </div>
   )
 }
 

@@ -17,7 +17,7 @@ function Post({ post }) {
         <p className="post__extract">{content}</p>
         <Link
           className="post__link"
-          to={`/posts/${url}`}
+          to={`/blog/${url}`}
         >
           Leer Entrada
         </Link>
