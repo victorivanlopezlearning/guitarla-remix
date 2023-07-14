@@ -16,7 +16,7 @@ function Guitar({ guitar }) {
 
         <Link
           className="guitar__link"
-          to={`/guitars/${url}`}
+          to={`/store/guitars/${url}`}
         >
           Ver Producto
         </Link>
