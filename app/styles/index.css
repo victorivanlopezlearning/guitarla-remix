@@ -157,7 +157,7 @@ main {
     transition: background-color .3s;
   }
 
-  .header-navigation__link:hover:not(.active) {
+  .header-navigation__link:hover:not(.active, .header-navigation__link:last-of-type) {
     background-color: var(--primary);
   }
 }
@@ -165,12 +165,14 @@ main {
 .header-navigation__link.active {
   color: var(--primary);
 }
-.header-navegation__icon {
+.header-navigation__link:last-of-type {
   display: none;
 }
 @media (min-width: 768px) {
-  .header-navegation__icon {
+  .header-navigation__link:last-of-type {
     display: block;
+  }
+  .header-navegation__icon {
     width: 2.5rem;
   }
 }
