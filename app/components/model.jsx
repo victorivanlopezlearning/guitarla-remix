@@ -9,7 +9,7 @@ function Model() {
       <p className="model__price">$399 MXN</p>
       <Link
         className="model__link"
-        to='/guitars/beck'
+        to='/store/guitars/beck'
       >
         Ver Producto
       </Link>
