@@ -57,3 +57,66 @@
     width: 100%;
   }
 }
+.single .guitar__description {
+  font-size: 1.8rem;
+}
+.guitar__form {
+  margin-top: 1.5rem;
+}
+.guitar__form-label {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.guitar__form-qty {
+  border: 1px solid #E1E1E1;
+  background-color: var(--white);
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .guitar__form-qty {
+    width: auto;
+    margin-top: 0;
+  }
+}
+.guitar__form-qty:focus-visible {
+  outline: none;
+}
+.guitar__form-qty--error {
+  border: 1px solid #c30d0d;
+}
+.guitar__form-btn {
+  cursor: pointer;
+  margin-top: 3rem;
+  display: block;
+  background-color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .guitar__form-btn {
+      width: auto;
+  }
+}
+@media (hover: hover) {
+  .guitar__form-btn {
+    transition: background-color .3s;
+  }
+
+  .guitar__form-btn:hover {
+    background-color: var(--black);
+  }
+}
+.guitar__form-btn:focus-visible {
+  outline: none;
+}
