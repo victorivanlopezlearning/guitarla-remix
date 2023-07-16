@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useOutletContext, Link } from "@remix-run/react";
 import { getGuitar } from "~/models/guitars.server";
 import ErrorMessage from "../components/error-message";
 
@@ -26,8 +26,11 @@ export function meta({ data }) {
 
 const Guitar = () => {
 
-  const [ quantity, setQuantity ] = useState(0);
-  const [ error, setError ] = useState(false);
+  const { addCart } = useOutletContext();
+
+  const [quantity, setQuantity] = useState(0);
+  const [error, setError] = useState(false);
+  const [showCart, setShowCart ] = useState(false);
 
   const guitar = useLoaderData();
 
@@ -37,7 +40,7 @@ const Guitar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(quantity < 1) {
+    if (quantity < 1) {
       setError(true);
       return;
     }
@@ -50,7 +53,8 @@ const Guitar = () => {
       imageURL,
 
     }
-    console.log(guitarSelected)
+    addCart(guitarSelected);
+    setShowCart(true);
   }
 
   return (
@@ -62,7 +66,7 @@ const Guitar = () => {
         <p className="guitar__description">{description}</p>
         <p className="guitar__price">${price} MXN</p>
 
-        <form 
+        <form
           className="guitar__form"
           onSubmit={handleSubmit}
         >
@@ -88,6 +92,7 @@ const Guitar = () => {
 
           {error && <ErrorMessage message={'Debes seleccionar una cantidad'} />}
         </form>
+          {showCart && <Link className="guitar__show-cart" to={'/cart'}>Ver Carrito</Link>}
       </div>
     </div>
   )

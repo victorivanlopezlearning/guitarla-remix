@@ -120,3 +120,10 @@
 .guitar__form-btn:focus-visible {
   outline: none;
 }
+.guitar__show-cart {
+  display: inline-block;
+  margin: 1rem 0;
+  font-weight: 700;
+  color: var(--black);
+  transition: all .3s;
+}

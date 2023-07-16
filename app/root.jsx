@@ -1,5 +1,6 @@
-import { 
-  Meta, 
+import { useState } from "react";
+import {
+  Meta,
   Links,
   Link,
   Outlet,
@@ -40,9 +41,30 @@ export function links() {
 };
 
 export default function App() {
+
+  const [cart, setCart] = useState([]);
+
+  const addCart = (item) => {
+    if(cart.some(itemState => itemState.id === item.id)) {
+      const cartUpdated = cart.map(itemState => {
+        if(itemState.id === item.id) {
+           itemState.quantity = item.quantity;
+        }
+        return itemState;
+      })
+      setCart(cartUpdated);
+    } else {
+      setCart([...cart, item]);
+    }
+  }
+
   return (
     <Document>
-      <Outlet />
+      <Outlet
+        context={{
+          addCart
+        }}
+      />
     </Document>
   )
 }
@@ -50,23 +72,23 @@ export default function App() {
 function Document({ children }) {
   return (
     <html lang="en">
-    <head>
-      <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-      />
-      <Meta />
-      <Links />
-    </head>
-    <body>
-      <Header />
-      { children }
-      <Footer />
-      <ScrollRestoration />
-      <Scripts />
-      <LiveReload />
-    </body>
+      <head>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
     </html>
   )
 }
