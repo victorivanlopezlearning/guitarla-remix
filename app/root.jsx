@@ -44,7 +44,7 @@ export default function App() {
 
   const [cart, setCart] = useState([]);
 
-  const addCart = (item) => {
+  const addItemCart = (item) => {
     if (cart.some(itemState => itemState.id === item.id)) {
       const cartUpdated = cart.map(itemState => {
         if (itemState.id === item.id) {
@@ -77,7 +77,7 @@ export default function App() {
     <Document>
       <Outlet
         context={{
-          addCart,
+          addItemCart,
           cart,
           updateQuantity,
           deleteItemCart,

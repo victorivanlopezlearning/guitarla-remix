@@ -26,7 +26,7 @@ export function meta({ data }) {
 
 const Guitar = () => {
 
-  const { addCart } = useOutletContext();
+  const { addItemCart } = useOutletContext();
 
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState(false);
@@ -54,7 +54,7 @@ const Guitar = () => {
       imageURL,
 
     }
-    addCart(guitarSelected);
+    addItemCart(guitarSelected);
     setShowCart(true);
   }
 
