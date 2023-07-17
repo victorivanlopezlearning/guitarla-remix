@@ -38,7 +38,7 @@ function Cart() {
           <h2>Artículos</h2>
           {cart.length === 0 ? (
             <>
-              <p className='cart__empty'>Carrito Vacio. <Link className='cart__empty-link' to={'/store'}>Ver Tienda</Link></p>
+              <p className='cart__empty'>Carrito vacío. <Link className='cart__empty-link' to={'/store'}>Ver Tienda</Link></p>
             </>
 
           ) : (
@@ -52,10 +52,12 @@ function Cart() {
           )}
         </div>
 
-        <aside className="cart__resume">
-          <h2>Total del carrito</h2>
-          <p>Total: ${total} MXN</p>
-        </aside>
+        {cart.length > 0 && (
+          <aside className="cart__resume">
+            <h2>Total del carrito</h2>
+            <p>Total: ${total} MXN</p>
+          </aside>
+        )}
       </div>
     </main>
   )
