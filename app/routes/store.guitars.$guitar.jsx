@@ -42,6 +42,7 @@ const Guitar = () => {
 
     if (quantity < 1) {
       setError(true);
+      setShowCart(false);
       return;
     }
     setError(false);

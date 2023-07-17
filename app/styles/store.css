@@ -121,8 +121,14 @@
   outline: none;
 }
 .guitar__show-success {
-  font-size: 1.7rem;
-  margin: 2rem 0 0 0;
+  font-size: 1.8rem;
+  margin: 1.5rem 0 0 0;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .guitar__show-success {
+    text-align: start;
+  }
 }
 .guitar__show-cart {
   display: inline-block;
