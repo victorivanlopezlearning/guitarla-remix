@@ -36,13 +36,13 @@ function Cart() {
       <div className="cart__content">
         <div className='cart__items'>
           <h2>Artículos</h2>
-          {cart.length === 0 ? (
+          {cart?.length === 0 ? (
             <>
               <p className='cart__empty'>Carrito vacío. <Link className='cart__empty-link' to={'/store'}>Ver Tienda</Link></p>
             </>
 
           ) : (
-            cart.map(item => (
+            cart?.map(item => (
               <CartItem
                 key={item.id}
                 item={item}
@@ -52,7 +52,7 @@ function Cart() {
           )}
         </div>
 
-        {cart.length > 0 && (
+        {cart?.length > 0 && (
           <aside className="cart__resume">
             <h2>Total del carrito</h2>
             <p>Total: ${total} MXN</p>

@@ -41,7 +41,6 @@ export function links() {
 };
 
 export default function App() {
-
   const cartLS = (typeof window !== 'undefined') ? JSON.parse(localStorage.getItem('cart')) ?? [] : null;
   const [cart, setCart] = useState(cartLS);
 
