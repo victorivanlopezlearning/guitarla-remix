@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useOutletContext, Link } from '@remix-run/react';
+import { ClientOnly } from 'remix-utils';
 import styles from '~/styles/cart.css';
 import CartItem from '../components/cart-item';
 
@@ -30,36 +31,40 @@ function Cart() {
   }, [cart])
 
   return (
-    <main className="cart container">
-      <h1 className="heading">Carrito de Compras</h1>
+    <ClientOnly fallback={'Cargando...'}>
+      {() => (
+        <main className="cart container">
+          <h1 className="heading">Carrito de Compras</h1>
 
-      <div className="cart__content">
-        <div className='cart__items'>
-          <h2>Artículos</h2>
-          {cart?.length === 0 ? (
-            <>
-              <p className='cart__empty'>Carrito vacío. <Link className='cart__empty-link' to={'/store'}>Ver Tienda</Link></p>
-            </>
+          <div className="cart__content">
+            <div className='cart__items'>
+              <h2>Artículos</h2>
+              {cart?.length === 0 ? (
+                <>
+                  <p className='cart__empty'>Carrito vacío. <Link className='cart__empty-link' to={'/store'}>Ver Tienda</Link></p>
+                </>
 
-          ) : (
-            cart?.map(item => (
-              <CartItem
-                key={item.id}
-                item={item}
-                updateQuantity={updateQuantity}
-              />
-            ))
-          )}
-        </div>
+              ) : (
+                cart?.map(item => (
+                  <CartItem
+                    key={item.id}
+                    item={item}
+                    updateQuantity={updateQuantity}
+                  />
+                ))
+              )}
+            </div>
 
-        {cart?.length > 0 && (
-          <aside className="cart__resume">
-            <h2>Total del carrito</h2>
-            <p>Total: ${total} MXN</p>
-          </aside>
-        )}
-      </div>
-    </main>
+            {cart?.length > 0 && (
+              <aside className="cart__resume">
+                <h2>Total del carrito</h2>
+                <p>Total: ${total} MXN</p>
+              </aside>
+            )}
+          </div>
+        </main>
+      )}
+    </ClientOnly>
   )
 }
 
