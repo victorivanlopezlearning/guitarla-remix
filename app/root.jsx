@@ -45,10 +45,10 @@ export default function App() {
   const [cart, setCart] = useState([]);
 
   const addCart = (item) => {
-    if(cart.some(itemState => itemState.id === item.id)) {
+    if (cart.some(itemState => itemState.id === item.id)) {
       const cartUpdated = cart.map(itemState => {
-        if(itemState.id === item.id) {
-           itemState.quantity = item.quantity;
+        if (itemState.id === item.id) {
+          itemState.quantity = item.quantity;
         }
         return itemState;
       })
@@ -58,11 +58,23 @@ export default function App() {
     }
   }
 
+  const updateQuantity = (itemToUpdate) => {
+    const cartUpdated = cart.map(itemState => {
+      if (itemState.id === itemToUpdate.id) {
+        itemState.quantity = itemToUpdate.quantity;
+      }
+      return itemState;
+    })
+    setCart(cartUpdated);
+  }
+
   return (
     <Document>
       <Outlet
         context={{
-          addCart
+          addCart,
+          cart,
+          updateQuantity,
         }}
       />
     </Document>
