@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useOutletContext, Link } from '@remix-run/react';
 import styles from '~/styles/cart.css';
 import CartItem from '../components/cart-item';
@@ -20,7 +21,13 @@ export function links() {
 
 function Cart() {
 
+  const [total, setTotal] = useState(0);
   const { cart, updateQuantity } = useOutletContext();
+
+  useEffect(() => {
+    const sumTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    setTotal(sumTotal);
+  }, [cart])
 
   return (
     <main className="cart container">
@@ -33,10 +40,10 @@ function Cart() {
             <>
               <p className='cart__empty'>Carrito Vacio. <Link className='cart__empty-link' to={'/store'}>Ver Tienda</Link></p>
             </>
-            
+
           ) : (
-            cart.map( item => (
-              <CartItem 
+            cart.map(item => (
+              <CartItem
                 key={item.id}
                 item={item}
                 updateQuantity={updateQuantity}
@@ -47,7 +54,7 @@ function Cart() {
 
         <aside className="cart__resume">
           <h2>Total del carrito</h2>
-          <p>Total: $</p>
+          <p>Total: ${total} MXN</p>
         </aside>
       </div>
     </main>
