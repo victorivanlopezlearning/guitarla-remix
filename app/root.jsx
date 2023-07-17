@@ -68,6 +68,11 @@ export default function App() {
     setCart(cartUpdated);
   }
 
+  const deleteItemCart = (id) => {
+    const cartUpdated = cart.filter(itemState => itemState.id !== id);
+    setCart(cartUpdated);
+  }
+
   return (
     <Document>
       <Outlet
@@ -75,6 +80,7 @@ export default function App() {
           addCart,
           cart,
           updateQuantity,
+          deleteItemCart,
         }}
       />
     </Document>
