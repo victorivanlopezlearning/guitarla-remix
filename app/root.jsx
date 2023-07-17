@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Meta,
   Links,
@@ -42,7 +42,12 @@ export function links() {
 
 export default function App() {
 
-  const [cart, setCart] = useState([]);
+  const cartLS = (typeof window !== 'undefined') ? JSON.parse(localStorage.getItem('cart')) ?? [] : null;
+  const [cart, setCart] = useState(cartLS);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart])
 
   const addItemCart = (item) => {
     if (cart.some(itemState => itemState.id === item.id)) {
@@ -118,11 +123,11 @@ export function ErrorBoundary() {
   if (isRouteErrorResponse(error)) {
     return (
       <Document>
-        <div className='error container'>
-          <h1 className='error__status'>{error.status}</h1>
-          <p className='error__description'>{error.data}</p>
+        <div className='error-boundary container'>
+          <h1 className='error-boundary__status'>{error.status}</h1>
+          <p className='error-boundary__description'>{error.data}</p>
           <Link
-            className='error__link'
+            className='error-boundary__link'
             to={-1}
           >
             Regresar
@@ -130,5 +135,16 @@ export function ErrorBoundary() {
         </div>
       </Document>
     );
+  } else if (error instanceof Error) {
+    return (
+      <Document>
+        <div className="error-boundary container">
+          <h1 className='error-boundary__status'>Error</h1>
+          <p className='error-boundary__description'>{error.message}</p>
+        </div>
+      </Document>
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
   }
 }

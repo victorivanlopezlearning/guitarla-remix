@@ -317,17 +317,17 @@ main {
 }
 
 /* ERROR */
-.error {
+.error-boundary {
   text-align: center;
 }
-.error__status {
+.error-boundary__status {
   font-size: 6rem;
   margin: 2rem 0;
 }
-.error__description {
+.error-boundary__description {
   font-size: 2.2rem;
 }
-.error__link {
+.error-boundary__link {
   display: inline-block;
   margin-top: 1rem;
   background-color: var(--primary);
@@ -340,10 +340,10 @@ main {
   font-weight: 900;
 }
 @media (hover: hover) {
-  .error__link {
+  .error-boundary__link {
     transition: background-color .3s;
   }
-  .error__link:hover {
+  .error-boundary__link:hover {
     background-color: var(--black);
   }
 }
