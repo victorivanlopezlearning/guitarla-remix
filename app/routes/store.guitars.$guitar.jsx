@@ -92,7 +92,7 @@ const Guitar = () => {
 
           {error && <ErrorMessage message={'Debes seleccionar una cantidad'} />}
         </form>
-          {showCart && <Link className="guitar__show-cart" to={'/cart'}>Ver Carrito</Link>}
+          {showCart && <p className="guitar__show-success">Agregado correctamente: <Link className="guitar__show-cart" to={'/cart'}>Ver Carrito</Link></p>}
       </div>
     </div>
   )
