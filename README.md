@@ -1,5 +1,6 @@
-# GuitarLA | Remix
+# GuitarLA | Remix - Strapi CMS - PostgreSQL - Cloudinary - Vite 
 
 ## Built with
-
-- React SSR Framework - [Remix](https://remix.run/)
+- [Remix](https://remix.run/)
+- [Strapi CMS](https://strapi.io/)
+- [Cloudinary](https://cloudinary.com/)
