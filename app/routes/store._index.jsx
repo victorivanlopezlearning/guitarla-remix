@@ -5,7 +5,7 @@ import ListGuitars from '~/components/list-guitars';
 export function meta() {
   return [
     { title: 'GuitarLA - Explora nuestra tienda en línea: Guitarras de calidad' },
-    { name: 'description', content: 'Descubre la mejor selección de marcas reconocidas y sumérgete en un mundo de posibilidades musicales. Nuestro objetivo es proporcionarte una experiencia de compra excepcional, con opciones para todos los niveles de habilidad y estilos musicales.'}
+    { name: 'description', content: 'Descubre la mejor selección de marcas reconocidas y sumérgete en un mundo de posibilidades musicales. Nuestro objetivo es proporcionarte una experiencia de compra excepcional, con opciones para todos los niveles de habilidad y estilos musicales.' }
   ];
 }
 
@@ -22,9 +22,11 @@ function Store() {
   return (
     <>
       <h1 className="heading">Nuestra Colección</h1>
-      <ListGuitars
-        guitars={ guitars }
-      />
+      {
+        (guitars)
+          ? <ListGuitars guitars={guitars} />
+          : <h4 className="text-center">No hay productos aún.</h4>
+      }
     </>
   )
 }
