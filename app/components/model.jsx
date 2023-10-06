@@ -5,7 +5,7 @@ function Model() {
   return (
     <div className='model'>
       <h1 className="model__name">Modelo Beck</h1>
-      <p className="model__description">Nunc sollicitudin pellentesque placerat. Quisque tincidunt risus id tristique accumsan. Nunc nibh erat, suscipit vel ultricies ut, tristique quis metus. Phasellus pharetra convallis urna non tempor.</p>
+      <p className="model__description">Descubre la guitarra Modelo Beck, una obra maestra que fusiona la artesanía experta con un sonido inigualable. Este instrumento de belleza atemporal está diseñado para satisfacer a músicos exigentes que buscan lo mejor en tono, comodidad y estilo.</p>
       <p className="model__price">$399 MXN</p>
       <Link
         className="model__link"
