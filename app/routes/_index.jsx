@@ -41,9 +41,9 @@ export async function loader() {
   ])
 
   const data = {
-    guitars: guitars.data,
-    posts: posts.data,
-    banner: banner.data,
+    guitars: guitars?.data,
+    posts: posts?.data,
+    banner: banner?.data,
   }
   return data;
 }
@@ -57,21 +57,26 @@ function Index() {
       <main className="container">
         <h1 className="heading">Nuestra Colección</h1>
 
-        <ListGuitars
-          guitars={guitars}
-        />
+        {
+          (guitars)
+            ? <ListGuitars guitars={guitars} />
+            : <h4 className="text-center">No hay productos aún.</h4>
+        }
       </main>
 
-      <Banner 
-        banner={banner?.attributes}
-      />
+      {
+        (banner)
+        && <Banner banner={banner.attributes} />
+      }
 
       <section className="container">
         <h2 className="heading">Nuestro Blog</h2>
 
-        <ListPosts
-          posts={posts}
-        />
+        {
+          (posts)
+            ? <ListPosts posts={posts} />
+            : <h4 className="text-center">No hay entradas aún.</h4>
+        }
       </section>
     </>
   )
